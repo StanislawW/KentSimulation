@@ -62,7 +62,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UISetKent.cs" />
     <Compile Include="Assets\Scripts\PointColorChanger.cs" />
+    <Compile Include="Assets\Scripts\CircleRenderer.cs" />
     <Compile Include="Assets\Scripts\RandomKent.cs" />
+    <Compile Include="Assets\Scripts\Capture.cs" />
     <Compile Include="Assets\Scripts\RandomKentEditor.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
   </ItemGroup>

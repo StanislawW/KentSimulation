@@ -16,6 +16,12 @@ public class UISetKent : MonoBehaviour
 	public TMP_InputField sampleNum;
 	public Button readyButton;
 
+	[Header("Camera Buttons")]
+	public GameObject camHandle;
+	public Button xButton;
+	public Button yButton;
+	public Button zButton;
+
 	[Header("Random Toggles")]
 	public Toggle randomizeGamma1;
 	public Toggle randomizeGamma23;
@@ -52,6 +58,19 @@ public class UISetKent : MonoBehaviour
 	public LineRenderer minorAxisLineRenderer;
 
 	private float theta = Mathf.PI/2;
+
+	public void XButton()
+	{
+		camHandle.transform.rotation = Quaternion.Euler(-90, -90, 0);
+	}
+	public void YButton()
+	{
+		camHandle.transform.rotation = Quaternion.Euler(-90, -180, 0);
+	}
+	public void ZButton()
+	{
+		camHandle.transform.rotation = Quaternion.Euler(0, 0, 0);
+	}
 
 	public void ToggleGizmos()
 	{
