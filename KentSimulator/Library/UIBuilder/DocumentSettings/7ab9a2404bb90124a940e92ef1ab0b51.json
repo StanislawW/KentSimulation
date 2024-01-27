@@ -1,0 +1,30 @@
+{
+    "UxmlGuid": "7ab9a2404bb90124a940e92ef1ab0b51",
+    "UxmlPath": "Assets/KentSimulationUI.uxml",
+    "CanvasX": -815,
+    "CanvasY": -177,
+    "CanvasWidth": 2085,
+    "CanvasHeight": 1008,
+    "MatchGameView": false,
+    "ZoomScale": 1.2999999523162842,
+    "PanOffset": {
+        "x": 1239.474853515625,
+        "y": 462.24493408203127
+    },
+    "ColorModeBackgroundOpacity": 1.0,
+    "ImageModeCanvasBackgroundOpacity": 1.0,
+    "CameraModeCanvasBackgroundOpacity": 1.0,
+    "EnableCanvasBackground": false,
+    "CanvasBackgroundMode": 0,
+    "CanvasBackgroundColor": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 1.0
+    },
+    "CanvasBackgroundImage": {
+        "instanceID": 0
+    },
+    "CanvasBackgroundImageScaleMode": 1,
+    "CanvasBackgroundCameraName": ""
+}
