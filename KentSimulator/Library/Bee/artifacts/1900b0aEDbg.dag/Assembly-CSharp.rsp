@@ -358,7 +358,6 @@
 "Assets/Scripts/FileHandler.cs"
 "Assets/Scripts/PointColorChanger.cs"
 "Assets/Scripts/RandomKent.cs"
-"Assets/Scripts/RandomKentEditor.cs"
 "Assets/Scripts/UIController.cs"
 -langversion:9.0
 

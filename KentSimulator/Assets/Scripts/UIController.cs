@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
 	public Button readyButton;
 	public FileHandler fileHandler;
 	public Capture capture;
+	public GameObject exitPopUp;
 
 	[Header("Camera Buttons")]
 	public GameObject camHandle;
@@ -60,6 +61,30 @@ public class UIController : MonoBehaviour
 	public LineRenderer minorAxisLineRenderer;
 
 	private float theta = Mathf.PI/2;
+
+
+	private void Update()
+	{
+		if(Input.GetKey(KeyCode.Escape))
+		{
+			OpenExitPopUp();
+		}
+	}
+
+	public void CloseExitPopUp()
+	{
+		exitPopUp.SetActive(false);
+	}
+
+	public void OpenExitPopUp()
+	{
+		exitPopUp.SetActive(true);
+	}
+
+	public void ExitApp()
+	{
+		Application.Quit();
+	}
 
 	public void ExportTxt()
 	{

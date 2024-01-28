@@ -50,7 +50,7 @@ public class Capture : MonoBehaviour
 
 	private void CaptureScreen()
 	{
-		ScreenCapture.CaptureScreenshot("kent_" + i + ".png");
+		ScreenCapture.CaptureScreenshot("../kent_" + i + ".png");
 		i++;
 	}
 }
