@@ -60,10 +60,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.18f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UISetKent.cs" />
     <Compile Include="Assets\Scripts\PointColorChanger.cs" />
     <Compile Include="Assets\Scripts\CircleRenderer.cs" />
     <Compile Include="Assets\Scripts\RandomKent.cs" />
+    <Compile Include="Assets\Scripts\FileHandler.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\Scripts\Capture.cs" />
     <Compile Include="Assets\Scripts\RandomKentEditor.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />

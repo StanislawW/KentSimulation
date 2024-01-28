@@ -28,10 +28,6 @@ public class Capture : MonoBehaviour
 			if (counter < 0)
 				EndCapture();
 		}
-		else if(Input.GetKeyDown(KeyCode.Q))
-		{
-			StartCapture();
-		}
 	}
 
 	public void StartCapture()

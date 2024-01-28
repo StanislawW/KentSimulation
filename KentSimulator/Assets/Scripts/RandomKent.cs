@@ -15,7 +15,7 @@ public class RandomKent : MonoBehaviour
 	public GameObject point;
 	public GameObject pointParent;
 
-	private GameObject[] points;
+	public GameObject[] points;
 
 	private float a;
 	private float b;
@@ -26,18 +26,6 @@ public class RandomKent : MonoBehaviour
 
 	private bool generated = false;
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			Generate();
-		}
-
-		if (Input.GetKeyDown(KeyCode.R))
-		{
-			DestroyPoints();
-		}
-	}
 
 	public void Generate()
 	{
@@ -125,7 +113,7 @@ public class RandomKent : MonoBehaviour
 		c2 = b / 8 * kappa;
 	}
 
-	private void AddPoint(Vector3 position, int num)
+	public void AddPoint(Vector3 position, int num)
 	{
 		GameObject newPoint = Instantiate(point, pointParent.transform);
 		newPoint.name = "Point " + num;

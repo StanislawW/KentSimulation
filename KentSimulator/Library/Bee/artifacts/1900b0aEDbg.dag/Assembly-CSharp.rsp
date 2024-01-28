@@ -355,10 +355,11 @@
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/Capture.cs"
 "Assets/Scripts/CircleRenderer.cs"
+"Assets/Scripts/FileHandler.cs"
 "Assets/Scripts/PointColorChanger.cs"
 "Assets/Scripts/RandomKent.cs"
 "Assets/Scripts/RandomKentEditor.cs"
-"Assets/Scripts/UISetKent.cs"
+"Assets/Scripts/UIController.cs"
 -langversion:9.0
 
 /deterministic
