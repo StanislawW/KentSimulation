@@ -79,6 +79,8 @@ public class UIController : MonoBehaviour
 	public void OpenExitPopUp()
 	{
 		exitPopUp.SetActive(true);
+		CloseAxisPopup();
+		CloseMeanDirPopup();
 	}
 
 	public void ExitApp()

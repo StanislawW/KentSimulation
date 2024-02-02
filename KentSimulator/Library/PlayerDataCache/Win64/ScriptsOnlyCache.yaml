@@ -190,51 +190,51 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1536}
+      Script: {instanceID: 1602}
     - Class: 114
-      Script: {instanceID: 1538}
+      Script: {instanceID: 1724}
     - Class: 114
-      Script: {instanceID: 1604}
+      Script: {instanceID: 2178}
     - Class: 114
-      Script: {instanceID: 1726}
+      Script: {instanceID: 2594}
     - Class: 114
-      Script: {instanceID: 2180}
+      Script: {instanceID: 2796}
     - Class: 114
-      Script: {instanceID: 2596}
+      Script: {instanceID: 3080}
     - Class: 114
-      Script: {instanceID: 2798}
+      Script: {instanceID: 4044}
     - Class: 114
-      Script: {instanceID: 3082}
+      Script: {instanceID: 4058}
     - Class: 114
-      Script: {instanceID: 4048}
+      Script: {instanceID: 4306}
     - Class: 114
-      Script: {instanceID: 4062}
+      Script: {instanceID: 4704}
     - Class: 114
-      Script: {instanceID: 4310}
+      Script: {instanceID: 4818}
     - Class: 114
-      Script: {instanceID: 4708}
+      Script: {instanceID: 4862}
     - Class: 114
-      Script: {instanceID: 4822}
+      Script: {instanceID: 4878}
     - Class: 114
-      Script: {instanceID: 4866}
+      Script: {instanceID: 4934}
     - Class: 114
-      Script: {instanceID: 4882}
+      Script: {instanceID: 4996}
     - Class: 114
-      Script: {instanceID: 4938}
+      Script: {instanceID: 5240}
     - Class: 114
-      Script: {instanceID: 5000}
+      Script: {instanceID: 5284}
     - Class: 114
-      Script: {instanceID: 5244}
+      Script: {instanceID: 5536}
     - Class: 114
-      Script: {instanceID: 5288}
+      Script: {instanceID: 5684}
     - Class: 114
-      Script: {instanceID: 5540}
+      Script: {instanceID: 5998}
     - Class: 114
-      Script: {instanceID: 5688}
+      Script: {instanceID: 6400}
     - Class: 114
-      Script: {instanceID: 6002}
+      Script: {instanceID: 6528}
     - Class: 114
-      Script: {instanceID: 6404}
+      Script: {instanceID: 6538}
     - Class: 114
       Script: {instanceID: 6554}
     - Class: 114
@@ -260,18 +260,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: 8f141af15241accb7f1b47f057694a0c
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CircleRenderer
-  - hash:
-      serializedVersion: 2
-      Hash: e7f4d0daae28a95b4439e67222e4bf39
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PointColorChanger
   - hash:
       serializedVersion: 2
       Hash: 55060a7bf226ac385ce19ebd450f199f
@@ -958,6 +946,18 @@ ScriptsOnlyBuild:
     className: BasicPlayableBehaviour
   - hash:
       serializedVersion: 2
+      Hash: 8f141af15241accb7f1b47f057694a0c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CircleRenderer
+  - hash:
+      serializedVersion: 2
+      Hash: e7f4d0daae28a95b4439e67222e4bf39
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PointColorChanger
+  - hash:
+      serializedVersion: 2
       Hash: e8d390bd9ecacc453a7500b90d0c0292
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
@@ -1127,5 +1127,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/KentSimulator.unity
-  playerPath: C:/Users/stasi/Documents/Projects/KentSimulation/KentSimulator/Build_0.2/Kent
+  playerPath: C:/Users/stasi/Documents/Projects/KentSimulation/KentSimulator/Build_0.3/Kent
     Simulator.exe
