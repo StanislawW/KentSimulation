@@ -209,10 +209,6 @@ public class UIController : MonoBehaviour
 		if (!string.IsNullOrEmpty(axisAngle.text))
 			angle = float.Parse(axisAngle.text);
 
-		//float cosTheta = Mathf.Cos(Mathf.PI/2);
-		//float x = Mathf.Sqrt(1 - Mathf.Pow(cosTheta, 2)) * Mathf.Cos(angle);
-		//float y = Mathf.Sqrt(1 - Mathf.Pow(cosTheta, 2)) * Mathf.Sin(angle);
-
 		Vector3 output = Vector3.zero;
 		Vector3.OrthoNormalize(ref randomKent.gamma1, ref output);
 		randomKent.gamma2 = Quaternion.AngleAxis(angle, randomKent.gamma1) * output;

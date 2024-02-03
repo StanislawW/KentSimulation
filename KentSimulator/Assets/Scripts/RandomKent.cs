@@ -76,15 +76,7 @@ public class RandomKent : MonoBehaviour
 
 		} while (AcceptR1(u1, r1) && AcceptR2(u2, r2) && r1 * r1 + r2 * r2 < 1);
 
-		return CalcPos(r1, r2);
-
-		/*
-		float cosTheta = 1 - 2 * (r1 * r1 + r2 * r2);
-		float sinPhi = r2 / Mathf.Sqrt(r1 * r1 + r2 * r2);
-		float cosPhi = r1 / Mathf.Sqrt(r1 * r1 + r2 * r2);
-
-		return new Vector3(Mathf.Sqrt(1 - cosTheta * cosTheta) * cosPhi, cosTheta, Mathf.Sqrt(1 - cosTheta * cosTheta) * sinPhi);
-		*/
+		return CalculateVector(r1, r2);
 	}
 
 	private bool AcceptR1(float u1, float r1)
@@ -121,7 +113,7 @@ public class RandomKent : MonoBehaviour
 		points[num] = newPoint;
 	}
 
-	Vector3 CalcPos(float x1, float x2)
+	Vector3 CalculateVector(float x1, float x2)
 	{
 		float r = Mathf.Min(Mathf.Sqrt(x1 * x1 + x2 * x2), 1);
 
