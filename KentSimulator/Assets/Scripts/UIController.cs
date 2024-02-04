@@ -175,10 +175,10 @@ public class UIController : MonoBehaviour
 		if (!string.IsNullOrEmpty(kappa.text))
 			newKappa = float.Parse(kappa.text);
 
-		if (newKappa < 2 * randomKent.beta)
+		if (newKappa < 2 * (randomKent.beta))
 		{
 			randomKent.beta = newKappa / 2;
-			beta.text = randomKent.beta.ToString("F2");
+			beta.text = (randomKent.beta).ToString("F2");
 			SetBeta();
 		}
 
@@ -192,10 +192,10 @@ public class UIController : MonoBehaviour
 		if (!string.IsNullOrEmpty(beta.text))
 			newBeta = float.Parse(beta.text);
 
-		if (randomKent.kappa < 2 * newBeta)
+		if ((randomKent.kappa) < 2 * newBeta)
 		{
 			randomKent.kappa = newBeta * 2;
-			kappa.text = randomKent.kappa.ToString("F2");
+			kappa.text = (randomKent.kappa).ToString("F2");
 			SetKappa();
 		}
 

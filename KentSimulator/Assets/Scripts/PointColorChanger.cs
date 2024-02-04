@@ -8,6 +8,14 @@ public class PointColorChanger : MonoBehaviour
 	public Material backMaterial;
 	public Renderer renderer;
 
+	private void Update()
+	{
+		if(Input.GetKey(KeyCode.R))
+		{
+			Destroy(this.gameObject);
+		}
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		renderer.material = backMaterial;
