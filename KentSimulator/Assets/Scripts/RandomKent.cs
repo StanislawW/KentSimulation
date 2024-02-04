@@ -47,12 +47,16 @@ public class RandomKent : MonoBehaviour
 
 	IEnumerator GenerateCorutine()
 	{
+		float maxR1 = CheckR1(FindMaxU1(0, 1));
+		float maxR2 = CheckR2(FindMaxU2(0, 1));
 		for (int i = 0; i < numberOfSamples; i++)
 		{
+			Debug.Log(maxR1);
+			Debug.Log(maxR2);
 			Debug.Log(i + " / " + numberOfSamples);
-			float u1 = Random.Range(0f, CheckR1(FindMaxU1(0, 1)));
-			float u2 = Random.Range(0f, CheckR2(FindMaxU2(0, 1)));
-			//Debug.Log("u1 max: " + u1 + "; u2 max:" + u2);
+			float u1 = Random.Range(0f, maxR1);
+			float u2 = Random.Range(0f, maxR2);
+
 
 			float r1;
 			float r2;
@@ -213,7 +217,7 @@ public class RandomKent : MonoBehaviour
 		gamma = 8 * beta;
 		lambda1 = Mathf.Sqrt(a + 2 * Mathf.Sqrt(gamma));
 		lambda2 = Mathf.Sqrt(b);
-		c2 = b / 8 * kappa;
+		c2 = b / (8 * kappa);
 	}
 
 	public void AddPoint(Vector3 position, int num)
