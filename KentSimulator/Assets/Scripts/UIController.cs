@@ -4,78 +4,104 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * \brief klasa UIController
+ *
+ * Klasa obsługujóca interfejs użytkownika.
+ * Dodatkowo zajmuje się wywoływaniem metod z innych klas.
+ *
+ * \version wersja 1.0
+ */
 public class UIController : MonoBehaviour
 {
 	[Header("General")]
-	public RandomKent randomKent;
-	public Toggle showGizmos;
-	public Toggle showAxes;
-	public GameObject axesLines;
-	public Material selected;
-	public Material ambient;
-	public TMP_InputField sampleNum;
-	public Button readyButton;
-	public FileHandler fileHandler;
-	public Capture capture;
-	public GameObject exitPopUp;
+	public RandomKent randomKent; /**< Klasa RandomKent */
+	public Toggle showGizmos; /**< Checkbox */
+	public Toggle showAxes; /**< Checkbox */
+	public GameObject axesLines; /**< GameOBject linii pomocniczych osi świata */
+	public Material selected; /**< Materiał wybranej linii pomocniczej */
+	public Material ambient; /**< Materiał nie wybranej linii pomocniczej */
+	public TMP_InputField sampleNum; /**< Pole tekstowe */
+	public Button readyButton; /**< Przycisk */
+	public FileHandler fileHandler; /**< Klasa FileHandler */
+	public Capture capture; /**< Klasa Capture */
+	public GameObject exitPopUp; /**< GameObject okientka wyłączającego prgoram */
+	public Slider progressBar; /**< Slider */
 
 	[Header("Camera Buttons")]
-	public GameObject camHandle;
-	public Button xButton;
-	public Button yButton;
-	public Button zButton;
+	public GameObject camHandle; /**< GameOBject rodzica MainCamera */
+	public Button xButton; /**< Przycisk */
+	public Button yButton; /**< Przycisk */
+	public Button zButton; /**< Przycisk */
 
 	[Header("Random Toggles")]
-	public Toggle randomizeGamma1;
-	public Toggle randomizeGamma23;
-	public Toggle randomizeKappa;
-	public Toggle randomizeBeta;
+	public Toggle randomizeGamma1; /**< Checkbox */
+	public Toggle randomizeGamma23; /**< Checkbox */
+	public Toggle randomizeKappa; /**< Checkbox */
+	public Toggle randomizeBeta; /**< Checkbox */
 
 	[Header("Kappa Parameters")]
-	public TMP_InputField kappa;
+	public TMP_InputField kappa; /**< Pole tekstowe */
 
 	[Header("Beta Parameters")]
-	public TMP_InputField beta;
+	public TMP_InputField beta; /**< Pole tekstowe */
 
 	[Header("Mean Direction Parameters")]
-	public GameObject meanDirPopUp;
-	public TMP_InputField meanDirTheta;
-	public TMP_InputField meanDirPhi;
-	public TMP_Text meanDirX;
-	public TMP_Text meanDirY;
-	public TMP_Text meanDirZ;
-	public Button meanDirSetButton;
-	public LineRenderer meanDirLineRenderer;
+	public GameObject meanDirPopUp; /**< GameObject okienka ośi wielkiej/małej */
+	public TMP_InputField meanDirTheta; /**< Pole tekstowe */
+	public TMP_InputField meanDirPhi; /**< Pole tekstowe */
+	public TMP_Text meanDirX; /**< Etykieta tekstowa */
+	public TMP_Text meanDirY; /**< Etykieta tekstowa */
+	public TMP_Text meanDirZ; /**< Etykieta tekstowa */
+	public Button meanDirSetButton; /**< Przycisk */
+	public LineRenderer meanDirLineRenderer; /**< Renderer */
 
 	[Header("Axis Parameters")]
-	public GameObject axisPopUp;
-	public TMP_InputField axisAngle;
-	public TMP_Text majorAxisX;
-	public TMP_Text majorAxisY;
-	public TMP_Text majorAxisZ;
-	public TMP_Text minorAxisX;
-	public TMP_Text minorAxisY;
-	public TMP_Text minorAxisZ;
-	public Button axisSetButton;
-	public LineRenderer majorAxisLineRenderer;
-	public LineRenderer minorAxisLineRenderer;
+	public GameObject axisPopUp; /**< GameObject okientka średniego kierunku */
+	public TMP_InputField axisAngle; /**< Pole tekstowe */
+	public TMP_Text majorAxisX; /**< Etykieta tekstowa */
+	public TMP_Text majorAxisY; /**< Etykieta tekstowa */
+	public TMP_Text majorAxisZ; /**< Etykieta tekstowa */
+	public TMP_Text minorAxisX; /**< Etykieta tekstowa */
+	public TMP_Text minorAxisY; /**< Etykieta tekstowa */
+	public TMP_Text minorAxisZ; /**< Etykieta tekstowa */
+	public Button axisSetButton; /**< Przycisk */
+	public LineRenderer majorAxisLineRenderer; /**< Renderer */
+	public LineRenderer minorAxisLineRenderer; /**< Renderer */
 
-	private float theta = Mathf.PI/2;
+	private float theta = Mathf.PI/2; /**< Zmienna pomocnicza */
 
-
+	/**
+	 * \brief Wykonuje się co klatkę.
+	 *
+	 * Co klatkę: wykrywa nacięniście przycisku Escape i otwiera okno zamknięcia gry, aktualizuje pasek postępu, wyłącza zakończony pasek postępu.
+	 */
 	private void Update()
 	{
 		if(Input.GetKey(KeyCode.Escape))
 		{
 			OpenExitPopUp();
 		}
+		progressBar.value = (float)randomKent.i / randomKent.numberOfSamples;
+		if(progressBar.value == 1) progressBar.gameObject.SetActive(false);
 	}
 
+	/**
+	 * \brief Zamykanie okna zamknięcia programu.
+	 *
+	 * Dezaktywuje GameObject okna zakmnięcia programu.
+	 */
 	public void CloseExitPopUp()
 	{
 		exitPopUp.SetActive(false);
 	}
 
+	/**
+	 * \brief Otwarcie okna zamknięcia programu.
+	 *
+	 * Aktywuje GameObject okna zakmnięcia programu.
+	 * Zamyka inne okna.
+	 */
 	public void OpenExitPopUp()
 	{
 		exitPopUp.SetActive(true);
@@ -83,34 +109,70 @@ public class UIController : MonoBehaviour
 		CloseMeanDirPopup();
 	}
 
+	/**
+	 * \brief Zamykanie aplikacji.
+	 *
+	 * Wyłącza aplikacj e.
+	 */
 	public void ExitApp()
 	{
 		Application.Quit();
 	}
 
+	/**
+	 * \brief Wywo  lanie eksportu tekstu.
+	 *
+	 * Wywo  luje metod   e Export klasy FileHandler.
+	 */
 	public void ExportTxt()
 	{
 		fileHandler.Export("kent");
 	}
 
+	/**
+	 * \brief Wywołanie eksportu projekcji.
+	 *
+	 * Wywołuje metodę StartCapture klasy Capture.
+	 */
 	public void ExportImg()
 	{
 		capture.StartCapture();
 	}
 
+	/**
+	 * \brief Ustawia widok z osi X.
+	 *
+	 * Ustawia obrót rodzica Kamery na wektor (-90, -90, 0).
+	 */
 	public void XButton()
 	{
 		camHandle.transform.rotation = Quaternion.Euler(-90, -90, 0);
 	}
+	/**
+	 * \brief Ustawia widok z osi Y.
+	 *
+	 * Ustawia obrót rodzica Kamery na wektor (-90, -180, 0).
+	 */
 	public void YButton()
 	{
 		camHandle.transform.rotation = Quaternion.Euler(-90, -180, 0);
 	}
+	/**
+	 * \brief Ustawia widok z osi Z.
+	 *
+	 * Ustawia obrót rodzica Kamery na wektor (0, 0, 0).
+	 */
 	public void ZButton()
 	{
 		camHandle.transform.rotation = Quaternion.Euler(0, 0, 0);
 	}
 
+	/**
+	 * \brief Aktualizacja linii pomocniczych.
+	 *
+	 * Ustawia aktywność linii pomocniczych, osi świata, osi małej/wielkiej i średniego kierunku na wartość ustawioną przez użykownika.
+	 * Wywolywane przy aktualizacji konkretnych elementów UI.
+	 */
 	public void ToggleGizmos()
 	{
 		axesLines.SetActive(showAxes.isOn);
@@ -119,6 +181,13 @@ public class UIController : MonoBehaviour
 		minorAxisLineRenderer.gameObject.SetActive(showGizmos.isOn);
 	}
 
+	/**
+	 * \brief Aktualizacja gotowości do generacji.
+	 *
+	 * Aktualizuje stan gotowości do generacji próbek.
+	 * Pola muszą być wypełnione będą ustawione na losowe.
+	 * Aktualizuje stan przycisku do generacji.
+	 */
 	public void CheckReady()
 	{
 		bool ready = true;
@@ -132,6 +201,14 @@ public class UIController : MonoBehaviour
 		readyButton.interactable = ready;
 	}
 
+	/**
+	 * \brief Wywołanie generacji.
+	 *
+	 * Losuje parametry które są ustawione na losowe.
+	 * Wywołuje aktualizację liczby próbek.
+	 * Aktywuje pasek postępu.
+	 * Wywołuje metodę Generate klasy RandomKent celem rozpoczęcia genracji.
+	 */
 	public void Run()
 	{
 		if(randomizeGamma1.isOn)
@@ -156,9 +233,15 @@ public class UIController : MonoBehaviour
 			SetBeta();
 		}
 		SetSampleNum();
+		progressBar.gameObject.SetActive(true);
 		randomKent.Generate();
 	}
 
+	/**
+	 * \brief Aktualizacja ilości próbek.
+	 *
+	 * Aktualizuje docelową liczbę próbek.
+	 */
 	public void SetSampleNum()
 	{
 		int newNum = 1000;
@@ -169,6 +252,12 @@ public class UIController : MonoBehaviour
 		CheckReady();
 	}
 
+	/**
+	 * \brief Aktualizacja parametru koncentracji.
+	 *
+	 * Aktualizuje wartość parametru kappa klasy RandomKent.
+	 * Upewnia się, że zależność 0 <= 2 * beta <= kappa jest zachowana.
+	 */
 	public void SetKappa()
 	{
 		float newKappa = 0;
@@ -186,6 +275,12 @@ public class UIController : MonoBehaviour
 		CheckReady();
 	}
 
+	/**
+	 * \brief Aktualizacja parametru owalności.
+	 *
+	 * Aktualizuje wartość parametru beta klasy RandomKent.
+	 * Upewnia się, że zależność 0 <= 2 * beta <= kappa jest zachowana.
+	 */
 	public void SetBeta()
 	{
 		float newBeta = 0;
@@ -203,6 +298,11 @@ public class UIController : MonoBehaviour
 		CheckReady();
 	}
 
+	/**
+	 * \brief Aktualizacja osi wielkiej/małej.
+	 *
+	 * Aktualizuje wartość parametru gamma2 i gamma3 klasy RandomKent.
+	 */
 	public void SetAxis()
 	{
 		float angle = 0;
@@ -232,6 +332,11 @@ public class UIController : MonoBehaviour
 		CheckReady();
 	}
 
+	/**
+	 * \brief Aktualizacja średniego kierunku.
+	 *
+	 * Aktualizuje wartość parametru gamma1 klasy RandomKent.
+	 */
 	public void SetMeanDirection()
 	{
 		theta = 0;
@@ -280,18 +385,33 @@ public class UIController : MonoBehaviour
 		CheckReady();
 	}
 
+	/**
+	 * \brief Otwarcie okna średniego kierunku.
+	 *
+	 * Aktywuje GameObject okna średniego kierunku.
+	 */
 	public void OpenMeanDirPopup()
 	{
 		meanDirPopUp.SetActive(true);
 		meanDirLineRenderer.material = selected;
 	}
 
+	/**
+	 * \brief Zamknięcie okna średniego kierunku.
+	 *
+	 * Dezaktywuje GameObject okna średniego kierunku.
+	 */
 	public void CloseMeanDirPopup()
 	{
 		meanDirPopUp.SetActive(false);
 		meanDirLineRenderer.material = ambient;
 	}
 
+	/**
+	 * \brief Otwarcie okna osi wielkiej/małej.
+	 *
+	 * Aktywuje GameObject okna osi wielkiej/małej.
+	 */
 	public void OpenAxisPopup()
 	{
 		axisPopUp.SetActive(true);
@@ -299,6 +419,11 @@ public class UIController : MonoBehaviour
 		majorAxisLineRenderer.material = selected;
 	}
 
+	/**
+	 * \brief Zamknięcie okna osi wielkiej/małej.
+	 *
+	 * Dezaktywuje GameObject okna osi wielkiej/małej.
+	 */
 	public void CloseAxisPopup()
 	{
 		axisPopUp.SetActive(false);

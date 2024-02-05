@@ -3,11 +3,26 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+/**
+ * \brief klasa FileHandler
+ *
+ * Klasa obsługująca generację pliku tekstowego.
+ * Zapisuje wyniki genereacji do pliku ".txt".
+ *
+ * \version wersja 1.0
+ */
 public class FileHandler : MonoBehaviour
 {
-	public RandomKent kent;
-	private int fileNumber = 0;
+	public RandomKent kent; /**< klasa RandomKent */
+	private int fileNumber = 0; /**< Numer pliku txt */
 
+	/**
+	 * \brief Zapisanie do pliku.
+	 *
+	 * Zapisuje wyniki genereacji do pliku "[fileName].txt" w folderze programu.
+	 * Zwiększa numer pliku txt.
+	 * \param[string] fileName nazwa pliku.
+	 */
 	public void Export(string fileName)
 	{
 
